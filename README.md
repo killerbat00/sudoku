@@ -1,10 +1,29 @@
-# Getting Started with Create React App
+# Sudoku
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A simple sudoku game written using React functional components in TypeScript.
+
+**Objective**
+Complete the grid so that each row, column, and 3x3 block contains the digits from 1 to 9; no duplicates are allowed.
+
+**Features**
+- Arrow key-based navigation.
+- Highlighting of selected cell's row, column, and 3x3 block.
+- Highlighting of duplicates in the same row, column, and 3x3 block.
+- Highlighting of cell's outside of the selected cell's peer groups when their value is equal.
+
+**Planned Features**
+- Deterministic sudoku board generator (as a separate package).
+- Support for dark mode and themeing.
+- Support for saving game state (query param & localstorage).
+- Animating wins.
+
+**Unplanned Features**
+- Automatic removal of digits in notes when their location has been found (requires changing solving logic to check against solved state).
+
 
 ## Available Scripts
 
-In the project directory, you can run:
+Once you've checked out the code, in the project directory, you can run:
 
 ### `npm start`
 
@@ -28,19 +47,3 @@ The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
