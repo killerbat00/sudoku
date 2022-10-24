@@ -15,6 +15,13 @@ body {
   display: flex;
   flex-direction: row;
   color: black;
+  min-width: 458px;
+}
+
+@media screen and (max-width: 458px) {
+  .sudoku-board {
+    align-items: unset;
+  }
 }
 
 .board-row:after {
