@@ -10,6 +10,7 @@ Complete the grid so that each row, column, and 3x3 block contains the digits fr
 - Highlighting of selected cell's row, column, and 3x3 block.
 - Highlighting of duplicates in the same row, column, and 3x3 block.
 - Highlighting of cell's outside of the selected cell's peer groups when their value is equal.
+- Notes: Enter multiple digits into a cell to store a list of candidate values for that cell. When a cell has multiple values, the text size is decreased.
 
 **Planned Features:**
 - Deterministic sudoku board generator (as a separate package).
