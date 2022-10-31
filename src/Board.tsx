@@ -1,5 +1,6 @@
 import { ChangeEvent, KeyboardEvent, useCallback, useState } from "react";
 import { Cell, getCellCoordinates } from "./Cell";
+import { ColorPicker } from "./ColorPicker";
 
 type BoardProps = {
     initialBoard: string[];
@@ -172,6 +173,7 @@ export const Board = ({ initialBoard }: BoardProps) => {
     }
 
     return (
+        <>
         <div className="game-board" onBlur={(_e) => setSelectedCell(-1)}>
             {[0,1,2,3,4,5,6,7,8].map((i) => {
                 return (
@@ -198,5 +200,53 @@ export const Board = ({ initialBoard }: BoardProps) => {
                 );
             })}
         </div>
+        <div className="colors">
+            <Colors/>
+        </div>
+        </>
     )
 };
+
+const Colors = () => {
+    const [variables, setVariables] = useState(new Map());
+    let rootElement: HTMLElement | null = document.querySelector("html");
+    if (!rootElement) return <></>;
+
+    if (variables.size === 0) {
+        const newVariables = new Map(variables);
+        let rootStyle: CSSStyleDeclaration = getComputedStyle(rootElement);
+        let numVars = rootStyle.length;
+
+        for (let i = 0; i < numVars; i++) {
+            let varName = rootStyle.item(i);
+            if (!varName) continue;
+            if (!varName.startsWith("--")) continue;
+
+            let varValue = rootStyle.getPropertyValue(varName);
+            if (!varValue) continue;
+
+            newVariables.set(varName, varValue);
+        }
+        setVariables(newVariables);
+    }
+
+    const setVariable = (variableName: string, value: string) => {
+        rootElement?.style.setProperty(variableName, value);
+        const newVariables = new Map(variables);
+        newVariables.set(variableName, value);
+        setVariables(newVariables);
+    }
+
+    return (
+        <div>
+        {Array.from(variables.keys()).map((value, index) => {
+            return <ColorPicker 
+                        key={index} 
+                        label={value.slice(2)} 
+                        defaultValue={variables.get(value)}
+                        onChangeColor={(x) => setVariable(value, x)}
+                        />
+        })}
+        </div>
+    );
+}

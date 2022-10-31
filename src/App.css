@@ -1,10 +1,9 @@
-:root {
+html {
   /* main colors */
   --main-bg-color: #282c34;
   --main-text-color: white;
 
   /* board colors */
-  --board-bg-color: white;
   --board-border-color: black;
 
   /* cell colors */
@@ -140,4 +139,9 @@ body {
 
 .cell.isSolved:disabled {
   background: var(--cell-solved-color);
+}
+
+.colors {
+  padding-left: 16px;
+  text-align: left;
 }
