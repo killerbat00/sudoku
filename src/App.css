@@ -1,5 +1,29 @@
+:root {
+  /* main colors */
+  --main-bg-color: #282c34;
+  --main-text-color: white;
+
+  /* board colors */
+  --board-bg-color: white;
+  --board-border-color: black;
+
+  /* cell colors */
+  --cell-border-color: gray;
+  --cell-peer-color: lightblue;
+  --cell-same-number-color: orange;
+  --cell-solved-color: lightgreen;
+
+  --cell-active-text-color: black;
+  --cell-active-bg-color: white;
+  --cell-active-duplicate-color: lightcoral;
+
+  --cell-disabled-text-color: black;
+  --cell-disabled-bg-color: darkgray;
+  --cell-disabled-duplicate-color: darkred;
+}
+
 body {
-  background-color: #282c34;
+  background-color: var(--main-bg-color);
 }
 
 .sudoku-board {
@@ -8,13 +32,12 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  color: white;
+  color: var(--main-text-color);
 }
 
 .game {
   display: flex;
   flex-direction: row;
-  color: black;
   min-width: 458px;
 }
 
@@ -24,14 +47,7 @@ body {
   }
 }
 
-.board-row:after {
-  clear: both;
-  content: "";
-  display: table;
-}
-
 .cell {
-  background: #fff;
   float: left;
   font-size: 28px;
   font-weight: bold;
@@ -39,8 +55,10 @@ body {
   width: 42px;
   height: 42px;
   text-align: center;
-  border: 2px solid gray;
+  border: 2px solid var(--cell-border-color);
   outline-offset: -2px;
+  color: var(--cell-active-text-color);
+  background-color: var(--cell-active-bg-color);
 }
 
 .cell.hasNotes {
@@ -48,32 +66,34 @@ body {
   line-height: 18px;
 }
 
-.duplicate-cell {
-  background: yellow;
-}
-
 .board-row {
-  border-left: 4px solid black;
-  border-right: 4px solid black;
+  border-left: 4px solid var(--board-border-color);
+  border-right: 4px solid var(--board-border-color);
   min-width: 450px;
 }
 
+.board-row:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
 .board-row:first-child {
-  border-top: 4px solid black;
+  border-top: 4px solid var(--board-border-color);
 }
 
 .board-row:last-child {
-  border-bottom: 4px solid black;
+  border-bottom: 4px solid var(--board-border-color);
 }
 
 .board-row:nth-child(3),
 .board-row:nth-child(6) {
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid var(--board-border-color);
 }
 
 .board-row:nth-child(4),
 .board-row:nth-child(7) {
-  border-top: 2px solid black;
+  border-top: 2px solid var(--board-border-color);
 }
 
 .board-row:nth-child(3)>.cell,
@@ -88,43 +108,36 @@ body {
 
 .board-row>input:nth-child(3),
 .board-row>input:nth-child(6) {
-  border-right: 2px solid black;
+  border-right: 2px solid var(--board-border-color);
 }
 
 .board-row>input:nth-child(4),
 .board-row>input:nth-child(7) {
-  border-left: 2px solid black;
+  border-left: 2px solid var(--board-border-color);
 }
 
 .cell.isPeer {
-  background: lightblue;
+  background: var(--cell-peer-color);
 }
 
 .cell.isDuplicate {
-  background: lightcoral;
+  background: var(--cell-active-duplicate-color);
 }
 
 .cell:disabled {
-  background: darkgray;
-  color: black;
+  background: var(--cell-disabled-bg-color);
+  color: var(--cell-disabled-text-color);
 }
 
 .cell.isDuplicate:disabled {
-  background: darkred;
-  color: black;
+  background: var(--cell-disabled-duplicate-color);
 }
 
-.cell.isSameNumber {
-  background: orange;
-}
-
+.cell.isSameNumber,
 .cell.isSameNumber:disabled {
-  background: orange;
-  color: black;
+  background: var(--cell-same-number-color);
 }
 
-.cell.isSolved,
 .cell.isSolved:disabled {
-  background: lightgreen;
-  color: black;
+  background: var(--cell-solved-color);
 }
