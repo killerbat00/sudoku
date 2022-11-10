@@ -1,5 +1,19 @@
 import { ChangeEvent, FocusEvent, KeyboardEvent } from "react";
 
+/* 
+Possible Cell States
+- Active / Enabled
+- - With Value
+    - Duplicate (same row, column, square)
+    - Same Number (but not row, column, or square)
+- - Without Value
+    - Peer (same row, column, square)
+- Inactive (always has a value) / Disabled
+- - With Value
+    - Duplicate (same row, column, square)
+    - Same Number (but not row, column, or square)
+*/
+
 type CellProps = {
     cellIndex: number;
     handleCellChange: (e: ChangeEvent<HTMLInputElement>, cellIndex: number) => void;
@@ -34,6 +48,8 @@ export const Cell = (props: CellProps): JSX.Element => {
     const val = board[cellIndex];
     let disabled = initialBoard[cellIndex] !== "";
 
+    const cellCoords = getCellCoordinates(cellIndex);
+
     if (solved) {
         disabled = true;
         classes.push("isSolved");
@@ -44,11 +60,10 @@ export const Cell = (props: CellProps): JSX.Element => {
 
         if (selectedCell >= 0 && selectedCell !== cellIndex && !isDuplicate) {
             const sCell = getCellCoordinates(selectedCell);
-            const cell = getCellCoordinates(cellIndex);
 
             // In the same row, column, or square
-            if ((sCell.row === cell.row || sCell.col === cell.col) || 
-                    (sCell.peerRow === cell.peerRow && sCell.peerCol === cell.peerCol)) {
+            if ((sCell.row === cellCoords.row || sCell.col === cellCoords.col) || 
+                    (sCell.peerRow === cellCoords.peerRow && sCell.peerCol === cellCoords.peerCol)) {
                 if (val && val === board[selectedCell]) {
                     classes.push("isDuplicate");
                 } else {
@@ -67,12 +82,17 @@ export const Cell = (props: CellProps): JSX.Element => {
     }
 
     return (
-        <input ref={el => setCellRef(el, cellIndex)} type="text" className={classes.join(" ")}
+        <input key={cellIndex} 
+            ref={el => setCellRef(el, cellIndex)}
+            type="text"
+            className={classes.join(" ")}
             onChange={e => handleCellChange(e, cellIndex)} 
             onFocus={e => handleCellFocus(e, cellIndex)}
             onKeyDown={e => handleCellKeyDown(e, cellIndex)}
             value={val}
             disabled={disabled}
+            aria-label={`Row ${cellCoords.row+1}, Column ${cellCoords.col+1}`}
+            aria-disabled={disabled}
         />
     );
 };

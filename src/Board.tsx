@@ -173,37 +173,35 @@ export const Board = ({ initialBoard }: BoardProps) => {
     }
 
     return (
-        <>
-        <div className="game-board" onBlur={(_e) => setSelectedCell(-1)}>
-            {[0,1,2,3,4,5,6,7,8].map((i) => {
-                return (
-                    <div className="board-row" key={i}>
-                        {[0,1,2,3,4,5,6,7,8].map((j) => {
-                            const cellIndex = i*9+j;
-                            return (
-                                <Cell
-                                    setCellRef={setCellRef}
-                                    key={cellIndex}
-                                    cellIndex={cellIndex}
-                                    handleCellChange={handleCellInput}
-                                    handleCellKeyDown={handleCellKeyDown(initialBoard)}
-                                    handleCellFocus={(_e, cellIndex) => setSelectedCell(cellIndex)}
-                                    board={board}
-                                    initialBoard={initialBoard}
-                                    selectedCell={selectedCell}
-                                    isDuplicate={duplicates.has(cellIndex)}
-                                    solved={solved}
-                                />
-                            )
-                        })}
-                    </div>
-                );
-            })}
-        </div>
-        <div className="colors">
+        <div>
+            <div className="game-board">
+                {[0,1,2,3,4,5,6,7,8].map((i) => {
+                    return (
+                            <>
+                            {[0,1,2,3,4,5,6,7,8].map((j) => {
+                                const cellIndex = i*9+j;
+                                return (
+                                    <Cell
+                                        setCellRef={setCellRef}
+                                        key={cellIndex}
+                                        cellIndex={cellIndex}
+                                        handleCellChange={handleCellInput}
+                                        handleCellKeyDown={handleCellKeyDown(initialBoard)}
+                                        handleCellFocus={(_e, cellIndex) => setSelectedCell(cellIndex)}
+                                        board={board}
+                                        initialBoard={initialBoard}
+                                        selectedCell={selectedCell}
+                                        isDuplicate={duplicates.has(cellIndex)}
+                                        solved={solved}
+                                    />
+                                )
+                            })}
+                            </>
+                    );
+                })}
+            </div>
             <Colors/>
         </div>
-        </>
     )
 };
 
@@ -238,7 +236,7 @@ const Colors = () => {
     }
 
     return (
-        <div>
+        <div className="colors">
         {Array.from(variables.keys()).map((value, index) => {
             return <ColorPicker 
                         key={index} 

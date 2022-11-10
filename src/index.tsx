@@ -19,8 +19,6 @@ const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
   <div className="sudoku-board">
     <h2>Sudoku</h2>
-    <div className="game">
-      <Board initialBoard={INITIAL_BOARD}/>
-    </div>
+    <Board initialBoard={INITIAL_BOARD}/>
   </div>
 );
