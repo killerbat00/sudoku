@@ -22,7 +22,6 @@ root.render(
     <h2>Sudoku</h2>
     <Board
       initialBoard={INITIAL_BOARD}
-      debugMode={DEBUG_MODE}
-      />
+      debugMode={DEBUG_MODE}/>
   </div>
 );
