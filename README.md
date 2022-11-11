@@ -17,6 +17,7 @@ Complete the grid so that each row, column, and 3x3 block contains the digits fr
 - Deterministic sudoku board generator (as a separate package).
 - Support for saving game state (query param & localstorage).
 - Animating wins.
+- Improved accessibility. Current scope only reads selected cell's location and value. It would be helpful to know the value of other cells in the same row/column/box, and perhaps even other rows/columns/boxes somehow?.
 
 **Unplanned Features:**
 - Automatic removal of digits in notes when their location has been found (requires changing solving logic to check against solved state).
