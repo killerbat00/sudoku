@@ -19,7 +19,7 @@ const DEBUG_MODE = false;
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
   <>
-    <h2>Sudoku</h2>
+    <h1>Sudoku</h1>
     <Board
       initialBoard={INITIAL_BOARD}
       debugMode={DEBUG_MODE}/>

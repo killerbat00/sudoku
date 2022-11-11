@@ -91,7 +91,7 @@ export const Cell = (props: CellProps): JSX.Element => {
             onKeyDown={e => handleCellKeyDown(e, cellIndex)}
             value={val}
             disabled={disabled}
-            aria-label={`Row ${cellCoords.row+1}, Column ${cellCoords.col+1}`}
+            aria-label={`Row ${cellCoords.row+1}, Column ${cellCoords.col+1}, Current Value ${val ? val : 'None'} ${val.length > 1 ? 'Has Notes' : ''}`}
             aria-disabled={disabled}
         />
     );
