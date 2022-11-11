@@ -1,77 +1,96 @@
 html {
   /* main colors */
 
-  /* red-warm-5 */
-  --main-background-light: #f6efea;
+  /* red-warm-5v */
+  --main-background-light: #fff5ee;
   /* red-warm-90 */
   --main-background-dark: #1f1c18;
-  --main-background-color: var(--main-background-dark);
+  --main-background-color: var(--main-background-light);
 
   /* red-warm-90 */
-  --main-text-color-light: #1f1c18;
-  /* red-warm-10v */
-  --main-text-color-dark: #fce1d4;
-  --main-text-color: var(--main-text-color-dark);
-
+  --main-text-color-light: var(--main-background-dark);
+  /* red-warm-5v */
+  --main-text-color-dark: var(--main-background-light);
+  --main-text-color: var(--main-text-color-light);
   /* cell colors */
   /* green-cool-20v */
-  --cell-solved-color: #70e17b;
+  --cell-solved-color-light: #70e17b;
+  /* green-cool-70v */
+  --cell-solved-color-dark: #154c21;
+  --cell-solved-color: var(--cell-solved-color-light);
 
   --border-color-light: var(--main-background-dark);
   --border-color-dark: var(--main-background-light);
-  --border-color: var(--border-color-dark);
+  --border-color: var(--border-color-light);
 
-  /* gold-20v */
-  --cell-same-number-color-light: #ffbe2e;
-  /* gold-70v */
-  --cell-same-number-color-dark: #5c410a;
-  --cell-same-number-color: var(--cell-same-number-color-dark);
+  /* gold-10v */
+  --active-cell-same-number-color-light: #ffe396;
+  /* gold-60v */
+  --active-cell-same-number-color-dark: #7a591a;
+  --active-cell-same-number-color: var(--active-cell-same-number-color-light);
+
+  /* gold-30v */
+  --disabled-cell-same-number-color-light: #e5a000;
+  /* gold-60v */
+  --disabled-cell-same-number-color-dark: #e5a000;
+  --disabled-cell-same-number-color: var(--disabled-cell-same-number-color-light);
 
   /* cyan-20v */
   --active-cell-peer-color-light: #52daf2;
   /* cyan-70v */
   --active-cell-peer-color-dark: #0e4f5c;
-  --active-cell-peer-color: var(--active-cell-peer-color-dark);
+  --active-cell-peer-color: var(--active-cell-peer-color-light);
 
   /* cyan-30v */
   --disabled-cell-peer-color-light: #00bde3;
   /* cyan-60v */
   --disabled-cell-peer-color-dark: #00687d;
-  --disabled-cell-peer-color: var(--disabled-cell-peer-color-dark);
+  --disabled-cell-peer-color: var(--disabled-cell-peer-color-light);
 
   /* red-warm-20v */
   --active-cell-duplicate-color-light: #f6bd9c;
   /* red-warm 70v */
   --active-cell-duplicate-color-dark: #63340f;
-  --active-cell-duplicate-color: var(--active-cell-duplicate-color-dark);
+  --active-cell-duplicate-color: var(--active-cell-duplicate-color-light);
 
   /* red-warm-30v */
   --disabled-cell-duplicate-color-light: #f39268;
   /* red-warm-60v */
   --disabled-cell-duplicate-color-dark: #9c3d10;
-  --disabled-cell-duplicate-color: var(--disabled-cell-duplicate-color-dark);
+  --disabled-cell-duplicate-color: var(--disabled-cell-duplicate-color-light);
 
   /* active cells use the main background color */
   /* gray-20 */
   --disabled-cell-background-color-light: #c9c9c9;
   /* gray-70 */
   --disabled-cell-background-color-dark: #454545;
-  --disabled-cell-background-color: var(--disabled-cell-background-color-dark);
+  --disabled-cell-background-color: var(--disabled-cell-background-color-light);
+}
+
+@media screen and (prefers-color-scheme: dark) {
+  html {
+    --main-background-color: var(--main-background-dark);
+    --main-text-color: var(--main-text-color-dark);
+    --cell-solved-color: var(--cell-solved-color-dark);
+    --border-color: var(--border-color-dark);
+    --active-cell-same-number-color: var(--active-cell-same-number-color-dark);
+    --disabled-cell-same-number-color: var(--disabled-cell-same-number-color-dark);
+    --active-cell-peer-color: var(--active-cell-peer-color-dark);
+    --disabled-cell-peer-color: var(--disabled-cell-peer-color-dark);
+    --active-cell-duplicate-color: var(--active-cell-duplicate-color-dark);
+    --disabled-cell-duplicate-color: var(--disabled-cell-duplicate-color-dark);
+    --disabled-cell-background-color: var(--disabled-cell-background-color-dark);
+  }
 }
 
 body {
   background-color: var(--main-background-color);
+  color: var(--main-text-color);
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Arial', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-.sudoku-board {
   text-align: center;
-  color: var(--main-text-color);
   width: fit-content;
   margin: 0 auto;
 }
@@ -81,6 +100,7 @@ body {
   grid-template-columns: 50px 50px 52px 50px 50px 52px 50px 50px 50px;
   grid-template-rows: 50px 50px 52px 50px 50px 52px 50px 50px 50px;
   background: var(--border-color);
+  border: 2px solid var(--border-color);
   min-width: 454px;
   max-width: 454px;
   margin: 1em auto;
@@ -93,11 +113,11 @@ body {
   width: 42px;
   height: 42px;
   text-align: center;
-  border: 2px solid var(--border-color);
-  outline-offset: -2px;
+  border: 1px solid var(--border-color);
+  outline-offset: -3px;
   color: var(--main-text-color);
   background-color: var(--main-background-color);
-  padding: 2px;
+  padding: 3px;
 }
 
 .cell:disabled {
@@ -126,9 +146,12 @@ body {
   background: var(--disabled-cell-duplicate-color);
 }
 
-.cell.isSameNumber,
+.cell.isSameNumber {
+  background: var(--active-cell-same-number-color);
+}
+
 .cell.isSameNumber:disabled {
-  background: var(--cell-same-number-color);
+  background: var(--disabled-cell-same-number-color);
 }
 
 .cell.isSolved,
@@ -140,4 +163,8 @@ body {
   text-align: left;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+}
+
+.colors>div>label {
+  padding-left: 8px;
 }

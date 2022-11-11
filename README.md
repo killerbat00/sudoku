@@ -11,20 +11,21 @@ Complete the grid so that each row, column, and 3x3 block contains the digits fr
 - Highlighting of duplicates in the same row, column, and 3x3 block.
 - Highlighting of cell's outside of the selected cell's peer groups when their value is equal.
 - Notes: Enter multiple digits into a cell to store a list of candidate values for that cell. When a cell has multiple values, the text size is decreased.
+- Dark mode support (currently via CSS media queries, dynamic switching is a WIP).
 
 **Planned Features:**
 - Deterministic sudoku board generator (as a separate package).
-- Support for dark mode and themeing.
 - Support for saving game state (query param & localstorage).
 - Animating wins.
 
 **Unplanned Features:**
 - Automatic removal of digits in notes when their location has been found (requires changing solving logic to check against solved state).
+- Support for themeing (I'm not good at picking colors yet. One option would be free-for-all color selection via debug-mode color picker & saving that state for users.)
 
 **Immediate TODOs:**
-- Fix styling on Safari on iOS.
 - Make fully responsive (with reasonable minimum width).
-- ~~Use colors with higher contrast & clear semantic meaning.~~ \[Done\]
+- Dark/Light mode switching via JS.
+- Saving game state with options to restart/export/load.
 
 ## Live Version
 A playable version is available here [https://bhm.sh/sudoku](https://bhm.sh/sudoku).
