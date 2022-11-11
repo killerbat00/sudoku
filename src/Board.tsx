@@ -4,6 +4,7 @@ import { ColorPicker } from "./ColorPicker";
 
 type BoardProps = {
     initialBoard: string[];
+    debugMode: boolean;
 }
 
 type BoardState = [string[], (newBoard: string[]) => void];
@@ -74,7 +75,7 @@ const moveCellFocus = (direction: ArrowKey, currentCellIdx: number, initialBoard
     }
 };
 
-export const Board = ({ initialBoard }: BoardProps) => {
+export const Board = ({ initialBoard, debugMode }: BoardProps) => {
     const [board, setBoard]: BoardState = useState(initialBoard);
     const [selectedCell, setSelectedCell]: SelectedCellState = useState(-1);
     const [duplicates, setDuplicates] = useState(new Set());
@@ -200,7 +201,7 @@ export const Board = ({ initialBoard }: BoardProps) => {
                     );
                 })}
             </div>
-            <Colors/>
+            {debugMode && <Colors/>}
         </div>
     )
 };

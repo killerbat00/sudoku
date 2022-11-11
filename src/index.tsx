@@ -15,10 +15,15 @@ const INITIAL_BOARD = [
     "", "", "8", "", "6", "3", "", "", "1",
 ]
 
+const DEBUG_MODE = false;
+
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
   <div className="sudoku-board">
     <h2>Sudoku</h2>
-    <Board initialBoard={INITIAL_BOARD}/>
+    <Board
+      initialBoard={INITIAL_BOARD}
+      debugMode={DEBUG_MODE}
+      />
   </div>
 );
