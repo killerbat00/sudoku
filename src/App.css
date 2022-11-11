@@ -1,32 +1,48 @@
 html {
   /* main colors */
-  --main-bg-color: #282c34;
-  --main-text-color: white;
+  /* red-warm-5 */
+  --main-background-light: #f6efea;
+  /* red-warm-90 */
+  --main-background-dark: #1f1c18;
+  /* red-warm-90 */
+  --main-text-color-light: #1f1c18;
+  /* red-warm-10v */
+  --main-text-color-dark: #fce1d4;
 
-  --square-border-color: pink;
+  --inner-border-color-light: var(--main-background-dark);
 
   /* cell colors */
-  --cell-border-color: gray;
-  --cell-peer-color: lightblue;
-  --cell-same-number-color: orange;
-  --cell-solved-color: lightgreen;
+  --cell-border-color-light: var(--main-background-dark);
 
-  --cell-active-text-color: black;
-  --cell-active-bg-color: white;
-  --cell-active-duplicate-color: lightcoral;
+  /* cyan-20v */
+  --cell-peer-color-light: #52daf2;
+  /* gold-20v */
+  --cell-same-number-color: #ffbe2e;
+  /* green-cool-40v */
+  --cell-solved-color: #00a91c;
 
-  --cell-disabled-text-color: black;
-  --cell-disabled-bg-color: darkgray;
-  --cell-disabled-duplicate-color: darkred;
+  --active-cell-text-color: var(--main-text-color-light);
+  --active-cell-background-color-light: var(--main-background-light);
+  --active-cell-background-color-dark: var(--main-background-dark);
+  /* red-warm-20v */
+  --active-cell-duplicate-color: #f6bd9c;
+
+  --disabled-cell-text-color: var(--main-text-color-light);
+  /* gray-20 */
+  --disabled-cell-background-color: #c9c9c9;
+  /* red-warm-30v */
+  --disabled-cell-duplicate-color: #f39268;
+  /* cyan-30v */
+  --disabled-cell-peer-color: #00bde3;
 }
 
 body {
-  background-color: var(--main-bg-color);
+  background-color: var(--main-background-light);
 }
 
 .sudoku-board {
   text-align: center;
-  color: var(--main-text-color);
+  color: var(--main-text-color-light);
   width: fit-content;
   margin: 0 auto;
 }
@@ -35,7 +51,7 @@ body {
   display: grid;
   grid-template-columns: 50px 50px 54px 50px 50px 54px 50px 50px 50px;
   grid-template-rows: 50px 50px 54px 50px 50px 54px 50px 50px 50px;
-  background: var(--square-border-color);
+  background: var(--inner-border-color-light);
   min-width: 458px;
   max-width: 458px;
   margin: 1em auto;
@@ -54,10 +70,10 @@ body {
   width: 42px;
   height: 42px;
   text-align: center;
-  border: 2px solid var(--cell-border-color);
+  border: 2px solid var(--cell-border-color-light);
   outline-offset: -2px;
-  color: var(--cell-active-text-color);
-  background-color: var(--cell-active-bg-color);
+  color: var(--active-cell-text-color);
+  background-color: var(--active-cell-background-color-light);
   padding: 2px;
 }
 
@@ -67,20 +83,20 @@ body {
 }
 
 .cell.isPeer {
-  background: var(--cell-peer-color);
+  background: var(--cell-peer-color-light);
 }
 
 .cell.isDuplicate {
-  background: var(--cell-active-duplicate-color);
+  background: var(--active-cell-duplicate-color);
 }
 
 .cell:disabled {
-  background: var(--cell-disabled-bg-color);
-  color: var(--cell-disabled-text-color);
+  background: var(--disabled-cell-background-color);
+  color: var(--disabled-cell-text-color);
 }
 
 .cell.isDuplicate:disabled {
-  background: var(--cell-disabled-duplicate-color);
+  background: var(--disabled-cell-duplicate-color);
 }
 
 .cell.isSameNumber,
