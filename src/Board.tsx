@@ -174,7 +174,7 @@ export const Board = ({ initialBoard, debugMode }: BoardProps) => {
     }
 
     return (
-        <div>
+        <>
             <div className="game-board">
                 {[0,1,2,3,4,5,6,7,8].map((i) => {
                     return (
@@ -202,7 +202,7 @@ export const Board = ({ initialBoard, debugMode }: BoardProps) => {
                 })}
             </div>
             {debugMode && <Colors/>}
-        </div>
+        </>
     )
 };
 

@@ -12,16 +12,25 @@ html {
   /* red-warm-5v */
   --main-text-color-dark: var(--main-background-light);
   --main-text-color: var(--main-text-color-light);
+
+  --border-color-light: var(--main-background-dark);
+  --border-color-dark: var(--main-background-light);
+  --border-color: var(--border-color-light);
+
   /* cell colors */
+  /* active and disabled cells use the same solved color */
   /* green-cool-20v */
   --cell-solved-color-light: #70e17b;
   /* green-cool-70v */
   --cell-solved-color-dark: #154c21;
   --cell-solved-color: var(--cell-solved-color-light);
 
-  --border-color-light: var(--main-background-dark);
-  --border-color-dark: var(--main-background-light);
-  --border-color: var(--border-color-light);
+  /* active cells use the main background color */
+  /* gray-20 */
+  --disabled-cell-background-color-light: #c9c9c9;
+  /* gray-70 */
+  --disabled-cell-background-color-dark: #454545;
+  --disabled-cell-background-color: var(--disabled-cell-background-color-light);
 
   /* gold-10v */
   --active-cell-same-number-color-light: #ffe396;
@@ -58,13 +67,6 @@ html {
   /* red-warm-60v */
   --disabled-cell-duplicate-color-dark: #9c3d10;
   --disabled-cell-duplicate-color: var(--disabled-cell-duplicate-color-light);
-
-  /* active cells use the main background color */
-  /* gray-20 */
-  --disabled-cell-background-color-light: #c9c9c9;
-  /* gray-70 */
-  --disabled-cell-background-color-dark: #454545;
-  --disabled-cell-background-color: var(--disabled-cell-background-color-light);
 }
 
 @media screen and (prefers-color-scheme: dark) {
