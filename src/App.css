@@ -18,8 +18,8 @@ html {
   --cell-peer-color-light: #52daf2;
   /* gold-20v */
   --cell-same-number-color: #ffbe2e;
-  /* green-cool-40v */
-  --cell-solved-color: #00a91c;
+  /* green-cool-20v */
+  --cell-solved-color: #70e17b;
 
   --active-cell-text-color: var(--main-text-color-light);
   --active-cell-background-color-light: var(--main-background-light);

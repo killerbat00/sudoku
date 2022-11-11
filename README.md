@@ -24,7 +24,7 @@ Complete the grid so that each row, column, and 3x3 block contains the digits fr
 **Immediate TODOs:**
 - Fix styling on Safari on iOS.
 - Make fully responsive (with reasonable minimum width).
-- Use colors with higher contrast & clear semantic meaning.
+- ~~Use colors with higher contrast & clear semantic meaning.~~ \[Done\]
 
 ## Live Version
 A playable version is available here [https://bhm.sh/sudoku](https://bhm.sh/sudoku).
