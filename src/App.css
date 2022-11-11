@@ -28,44 +28,44 @@ html {
   /* active cells use the main background color */
   /* gray-20 */
   --disabled-cell-background-color-light: #c9c9c9;
-  /* gray-70 */
-  --disabled-cell-background-color-dark: #454545;
+  /* gray-60 */
+  --disabled-cell-background-color-dark: #5c5c5c;
   --disabled-cell-background-color: var(--disabled-cell-background-color-light);
 
   /* gold-10v */
   --active-cell-same-number-color-light: #ffe396;
-  /* gold-60v */
-  --active-cell-same-number-color-dark: #7a591a;
-  --active-cell-same-number-color: var(--active-cell-same-number-color-light);
-
   /* gold-30v */
   --disabled-cell-same-number-color-light: #e5a000;
+  /* gold-70v */
+  --active-cell-same-number-color-dark: #5c410a;
   /* gold-60v */
   --disabled-cell-same-number-color-dark: #e5a000;
+
+  --active-cell-same-number-color: var(--active-cell-same-number-color-light);
   --disabled-cell-same-number-color: var(--disabled-cell-same-number-color-light);
 
-  /* cyan-20v */
-  --active-cell-peer-color-light: #52daf2;
-  /* cyan-70v */
-  --active-cell-peer-color-dark: #0e4f5c;
-  --active-cell-peer-color: var(--active-cell-peer-color-light);
-
+  /* cyan-10v */
+  --active-cell-peer-color-light: #a8f2ff;
   /* cyan-30v */
   --disabled-cell-peer-color-light: #00bde3;
+  /* cyan-70v */
+  --active-cell-peer-color-dark: #0e4f5c;
   /* cyan-60v */
   --disabled-cell-peer-color-dark: #00687d;
+
+  --active-cell-peer-color: var(--active-cell-peer-color-light);
   --disabled-cell-peer-color: var(--disabled-cell-peer-color-light);
 
-  /* red-warm-20v */
-  --active-cell-duplicate-color-light: #f6bd9c;
-  /* red-warm 70v */
-  --active-cell-duplicate-color-dark: #63340f;
-  --active-cell-duplicate-color: var(--active-cell-duplicate-color-light);
-
+  /* red-warm-10v */
+  --active-cell-duplicate-color-light: #fce1d4;
   /* red-warm-30v */
   --disabled-cell-duplicate-color-light: #f39268;
+  /* red-warm 70v */
+  --active-cell-duplicate-color-dark: #63340f;
   /* red-warm-60v */
   --disabled-cell-duplicate-color-dark: #9c3d10;
+
+  --active-cell-duplicate-color: var(--active-cell-duplicate-color-light);
   --disabled-cell-duplicate-color: var(--disabled-cell-duplicate-color-light);
 }
 
