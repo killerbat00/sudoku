@@ -1,6 +1,7 @@
 import ReactDOM from 'react-dom/client';
 import './App.css';
 import { Board } from './Board';
+import { ThemePicker } from './ThemePicker';
 
 const INITIAL_BOARD = [
     "3", "", "1", "4", "7", "", "", "6", "",
@@ -20,6 +21,7 @@ const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
   <>
     <h1>Sudoku</h1>
+    <ThemePicker/>
     <Board
       initialBoard={INITIAL_BOARD}
       debugMode={DEBUG_MODE}/>

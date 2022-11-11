@@ -1,0 +1,38 @@
+html {
+    --button-background-light: var(--main-background-dark);
+    --button-background-dark: var(--main-background-light);
+    --button-background: var(--button-background-light);
+
+    --button-text-color-light: var(--main-text-color-dark);
+    --button-text-color-dark: var(--main-text-color-light);
+    --button-text-color: var(--button-text-color-light);
+}
+
+@media screen and (prefers-color-scheme: dark) {
+    html {
+        --button-background: var(--button-background-dark);
+        --button-text-color: var(--button-text-color-dark);
+        --button-active-border-color: var(--button-active-border-color-dark);
+    }
+}
+
+button {
+    min-height: 48px;
+    min-width: 48px;
+    margin: 1em;
+    background-color: var(--button-background);
+    color: var(--button-text-color);
+    border: 2px solid var(--border-color);
+    border-radius: 5px;
+}
+
+button:focus,
+button:focus-visible,
+button:focus-within {
+    border: 2px solid var(--active-cell-peer-color);
+}
+
+button:active {
+    background-color: var(--active-cell-peer-color);
+    color: var(--main-text-color);
+}

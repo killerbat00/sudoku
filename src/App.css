@@ -105,7 +105,7 @@ body {
   border: 2px solid var(--border-color);
   min-width: 454px;
   max-width: 454px;
-  margin: 1em auto;
+  margin: 0 auto;
 }
 
 .cell {
