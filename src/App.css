@@ -49,18 +49,12 @@ body {
 
 .game-board {
   display: grid;
-  grid-template-columns: 50px 50px 54px 50px 50px 54px 50px 50px 50px;
-  grid-template-rows: 50px 50px 54px 50px 50px 54px 50px 50px 50px;
+  grid-template-columns: 50px 50px 52px 50px 50px 52px 50px 50px 50px;
+  grid-template-rows: 50px 50px 52px 50px 50px 52px 50px 50px 50px;
   background: var(--inner-border-color-light);
-  min-width: 458px;
-  max-width: 458px;
+  min-width: 454px;
+  max-width: 454px;
   margin: 1em auto;
-}
-
-@media screen and (max-width: 458px) {
-  .sudoku-board {
-    align-items: unset;
-  }
 }
 
 .cell {
