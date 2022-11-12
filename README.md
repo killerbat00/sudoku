@@ -31,6 +31,7 @@ Complete the grid so that each row, column, and 3x3 block contains the digits fr
 
 ## Live Version
 A playable version is available here [https://bhm.sh/sudoku](https://bhm.sh/sudoku).
+![](sudoku20221111.gif)
 
 ## Available Scripts
 
