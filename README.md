@@ -15,13 +15,14 @@ Complete the grid so that each row, column, and 3x3 block contains the digits fr
 
 **Planned Features:**
 - Deterministic sudoku board generator (as a separate package).
-- Support for saving game state (query param & localstorage).
+- Support for saving game state (query param & localstorage), importing and exporting game state.
 - Animating wins.
-- Improved accessibility. Current scope only reads selected cell's location and value. It would be helpful to know the value of other cells in the same row/column/box, and perhaps even other rows/columns/boxes somehow?.
+- Improved accessibility. Current scope only reads selected cell's location and value. It would be helpful to know the value of other cells in the same row/column/box, and perhaps even other rows/columns/boxes somehow?. Also consider disabled cells which are currently unreachable via screenreader.
 
 **Unplanned Features:**
 - Automatic removal of digits in notes when their location has been found (requires changing solving logic to check against solved state).
 - Support for themeing (I'm not good at picking colors yet. One option would be free-for-all color selection via debug-mode color picker & saving that state for users.)
+- Support for undo/redo (state is pretty easy to manipulate in this way, but unclear with it offers for a sudoku game).
 
 **Immediate TODOs:**
 - Make fully responsive (with reasonable minimum width).
