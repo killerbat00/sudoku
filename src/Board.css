@@ -82,6 +82,26 @@ html {
   --button-text-color: var(--button-text-color-light);
 }
 
+@media screen and (prefers-color-scheme: dark) {
+  html {
+    --main-background-color: var(--main-background-dark);
+    --main-text-color: var(--main-text-color-dark);
+    --cell-solved-color: var(--cell-solved-color-dark);
+    --border-color: var(--border-color-dark);
+    --active-cell-same-number-color: var(--active-cell-same-number-color-dark);
+    --disabled-cell-same-number-color: var(--disabled-cell-same-number-color-dark);
+    --active-cell-peer-color: var(--active-cell-peer-color-dark);
+    --disabled-cell-peer-color: var(--disabled-cell-peer-color-dark);
+    --active-cell-duplicate-color: var(--active-cell-duplicate-color-dark);
+    --disabled-cell-duplicate-color: var(--disabled-cell-duplicate-color-dark);
+    --disabled-cell-background-color: var(--disabled-cell-background-color-dark);
+    --visited-link-color: var(--visited-link-color-dark);
+    --button-background: var(--button-background-dark);
+    --button-text-color: var(--button-text-color-dark);
+    --button-active-border-color: var(--button-active-border-color-dark);
+  }
+}
+
 [data-theme='Dark'] {
   --main-background-color: var(--main-background-dark);
   --main-text-color: var(--main-text-color-dark);
@@ -98,6 +118,11 @@ html {
   --button-background: var(--button-background-dark);
   --button-text-color: var(--button-text-color-dark);
   --button-active-border-color: var(--button-active-border-color-dark);
+}
+
+h1 {
+  margin: 0;
+  padding-top: 1em;
 }
 
 button {
@@ -122,15 +147,20 @@ button:active {
 }
 
 body {
-  background-color: var(--main-background-color);
-  color: var(--main-text-color);
+  height: 100%;
   margin: 0;
   font-family: 'Arial', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.sudokuBoard {
+  width: 100%;
+  min-height: 100vh;
   text-align: center;
-  width: fit-content;
   margin: 0 auto;
+  background-color: var(--main-background-color);
+  color: var(--main-text-color);
 }
 
 a:visited {

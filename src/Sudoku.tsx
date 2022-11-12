@@ -26,36 +26,39 @@ export const Sudoku = () => {
     const [currentTheme, setCurrentTheme] = useState(ThemeEnum.Light);
 
     const setTheme = (newTheme: ThemeEnum) => {
-        setCurrentTheme(newTheme);
         localStorage.setItem(THEME_KEY, newTheme.toString());
-        document.body.setAttribute("data-theme", newTheme.toString());
+        setCurrentTheme(newTheme);
+    }
+
+    const invertTheme = () => {
+        let newTheme = currentTheme === ThemeEnum.Dark ? ThemeEnum.Light : ThemeEnum.Dark;
+        setTheme(newTheme);
     }
 
     useEffect(() => {
         const defaultDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
         const storedTheme = localStorage.getItem(THEME_KEY);
         if (storedTheme) {
-            let theme = storedTheme as keyof typeof ThemeEnum;
-            setTheme(ThemeEnum[theme]);
+            let newTheme = ThemeEnum[storedTheme as keyof typeof ThemeEnum];
+            setTheme(newTheme);
         } else {
             setTheme(defaultDark ? ThemeEnum.Dark : ThemeEnum.Light);
         }
         
         window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (event) => {
-            const newTheme = event.matches ? ThemeEnum.Dark : ThemeEnum.Light;
+            let newTheme = event.matches ? ThemeEnum.Dark : ThemeEnum.Light;
             setTheme(newTheme);
         });
     }, []);
 
     return (
-        <>
+        <div className="sudokuBoard" data-theme={currentTheme}>
             <h1>Sudoku</h1>
-            {currentTheme === ThemeEnum.Light && <button type="button" id="darkModeBtn" onClick={() => setTheme(ThemeEnum.Dark)}>Dark Mode</button>}
-            {currentTheme === ThemeEnum.Dark && <button type="button" id="lightModeBtn" onClick={() => setTheme(ThemeEnum.Light)}>Light Mode</button>}
+            <button type="button" onClick={invertTheme}>{currentTheme === ThemeEnum.Dark ? 'Light Mode' : 'Dark Mode'}</button>
             <Board
                 initialBoard={INITIAL_BOARD}
                 debugMode={DEBUG_MODE}/>
             <p>Source available at <a href="https://github.com/killerbat00/sudoku">github.com/killerbat00/sudoku</a></p>
-        </>
+        </div>
     )
 }
