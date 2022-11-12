@@ -38,8 +38,8 @@ export const Sudoku = () => {
     useEffect(() => {
         const defaultDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
         const storedTheme = localStorage.getItem(THEME_KEY);
-        if (storedTheme) {
-            let newTheme = ThemeEnum[storedTheme as keyof typeof ThemeEnum];
+        let newTheme = storedTheme ? ThemeEnum[storedTheme as keyof typeof ThemeEnum] : undefined;
+        if (newTheme) {
             setTheme(newTheme);
         } else {
             setTheme(defaultDark ? ThemeEnum.Dark : ThemeEnum.Light);
