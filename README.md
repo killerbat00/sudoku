@@ -11,7 +11,7 @@ Complete the grid so that each row, column, and 3x3 block contains the digits fr
 - Highlighting of duplicates in the same row, column, and 3x3 block.
 - Highlighting of cell's outside of the selected cell's peer groups when their value is equal.
 - Notes: Enter multiple digits into a cell to store a list of candidate values for that cell. When a cell has multiple values, the text size is decreased.
-- Dark mode support via CSS media queries and dynamic switching.
+- Dark mode support via CSS media queries and dynamic switching; selection saved per-user in localStorage.
 
 **Planned Features:**
 - Deterministic sudoku board generator (as a separate package).
@@ -26,7 +26,7 @@ Complete the grid so that each row, column, and 3x3 block contains the digits fr
 **Immediate TODOs:**
 - Make fully responsive (with reasonable minimum width).
 - Saving game state with options to restart/export/load.
-- Save current them in localStorage.
+- Fix flash of default (light) theme when localStorage contains dark theme preference (likely requires moving theme switching to a separate, non-React script so it can execute before the DOM is fully rendered.)
 
 ## Live Version
 A playable version is available here [https://bhm.sh/sudoku](https://bhm.sh/sudoku).

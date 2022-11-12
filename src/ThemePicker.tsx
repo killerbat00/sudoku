@@ -1,17 +1,24 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import './Button.css';
 
 enum ThemeEnum {
-    Dark = "dark",
-    Light = "light",
+    Dark = "Dark",
+    Light = "Light",
 }
+
+const THEME_KEY: string = "theme";
 
 export const ThemePicker = () => {
     const [currentTheme, setCurrentTheme] = useState(ThemeEnum.Light);
     const rootElement: HTMLElement = document.querySelector("html") || new HTMLElement();
 
-    const setDarkMode = () => {
-        setCurrentTheme(ThemeEnum.Dark);
+    const setTheme = (newTheme: ThemeEnum) => {
+        setCurrentTheme(newTheme);
+        localStorage.setItem(THEME_KEY, newTheme.toString());
+    }
+
+    const setDarkMode = useCallback(() => {
+        setTheme(ThemeEnum.Dark);
         rootElement.style.setProperty("--main-background-color", "var(--main-background-dark)");
         rootElement.style.setProperty("--main-text-color", "var(--main-text-color-dark)");
         rootElement.style.setProperty("--cell-solved-color", "var(--cell-solved-color-dark)");
@@ -26,10 +33,10 @@ export const ThemePicker = () => {
         rootElement.style.setProperty("--button-background", "var(--button-background-dark)");
         rootElement.style.setProperty("--button-text-color", "var(--button-text-color-dark)");
         rootElement.style.setProperty("--button-active-border-color", "var(--button-active-border-color-dark)");
-    }
+    }, [rootElement.style]);
 
-    const setLightMode = () => {
-        setCurrentTheme(ThemeEnum.Light);
+    const setLightMode = useCallback(() => {
+        setTheme(ThemeEnum.Light);
         rootElement.style.setProperty("--main-background-color", "var(--main-background-light)");
         rootElement.style.setProperty("--main-text-color", "var(--main-text-color-light)");
         rootElement.style.setProperty("--cell-solved-color", "var(--cell-solved-color-light)");
@@ -44,18 +51,28 @@ export const ThemePicker = () => {
         rootElement.style.setProperty("--button-background", "var(--button-background-light)");
         rootElement.style.setProperty("--button-text-color", "var(--button-text-color-light)");
         rootElement.style.setProperty("--button-active-border-color", "var(--button-active-border-color-light)");
-    }
+    }, [rootElement.style]);
 
     useEffect(() => {
+        const currentThemeVal = localStorage.getItem(THEME_KEY);
+        if (currentThemeVal) {
+            let storedTheme = currentThemeVal as keyof typeof ThemeEnum;
+            if (storedTheme === ThemeEnum.Dark) {
+                setDarkMode();
+            } else {
+                setLightMode();
+            }
+        }
+
         window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (event) => {
-            var newColorScheme = event.matches ? ThemeEnum.Dark : ThemeEnum.Light;
+            const newColorScheme = event.matches ? ThemeEnum.Dark : ThemeEnum.Light;
             if (newColorScheme === ThemeEnum.Dark) {
                 setDarkMode();
             } else {
                 setLightMode();
             }
         })
-    });
+    }, [setDarkMode, setLightMode]);
 
     return (
         <>
