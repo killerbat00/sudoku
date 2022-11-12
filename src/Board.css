@@ -1,3 +1,13 @@
+* {
+  transition: all .05s;
+}
+
+@media screen and (prefers-reduced-motion) {
+  * {
+    transition: none;
+  }
+}
+
 html {
   /* main colors */
 
