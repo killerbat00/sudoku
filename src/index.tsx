@@ -25,5 +25,6 @@ root.render(
     <Board
       initialBoard={INITIAL_BOARD}
       debugMode={DEBUG_MODE}/>
+    <p>Source available at <a href="https://github.com/killerbat00/sudoku">github.com/killerbat00/sudoku</a></p>
   </>
 );

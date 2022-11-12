@@ -33,6 +33,7 @@ export const ThemePicker = () => {
         rootElement.style.setProperty("--button-background", "var(--button-background-dark)");
         rootElement.style.setProperty("--button-text-color", "var(--button-text-color-dark)");
         rootElement.style.setProperty("--button-active-border-color", "var(--button-active-border-color-dark)");
+        rootElement.style.setProperty("--visited-link-color", "var(--visited-link-color-dark)");
     }, [rootElement.style]);
 
     const setLightMode = useCallback(() => {
@@ -51,6 +52,7 @@ export const ThemePicker = () => {
         rootElement.style.setProperty("--button-background", "var(--button-background-light)");
         rootElement.style.setProperty("--button-text-color", "var(--button-text-color-light)");
         rootElement.style.setProperty("--button-active-border-color", "var(--button-active-border-color-light)");
+        rootElement.style.setProperty("--visited-link-color", "var(--visited-link-color-light)");
     }, [rootElement.style]);
 
     useEffect(() => {
